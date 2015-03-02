@@ -13,6 +13,12 @@ typedef CP * CPPtr;
 
 
 // Function prototypes 
+int numberNodes(CPPtr &hdTree);
+int numberOddDataNodes(CPPtr &hdTree);
+CPPtr minimumDataNode(CPPtr &hdTree);
+int sumDataNodes(CPPtr &hdTree);
+int idDepth(CPPtr &hdTree, int id);
+bool treeBalanced(CPPtr &hdTree);
 
 // Generate an instance of the structure
 void constructStructure(CPPtr &hdTree);
@@ -29,7 +35,13 @@ int main(int argc, char ** argv)
 	// =================================
 	// Your functions should go here
     
-    
+    cout << "Number of nodes is " << numberNodes(hdTree) << endl;
+    cout << "Number of nodes with odd data points is " << numberOddDataNodes(hdTree) << endl;
+    cout << "Value of data field in minimum node is " << minimumDataNode(hdTree)->data << endl;
+    cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
+    cout << "Depth of node with id " << 4 << " is " << idDepth(hdTree, 4) << endl;
+    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
+    cout << "Program ends..." << endl;
         
     // =================================
     
@@ -39,7 +51,38 @@ int main(int argc, char ** argv)
     return 0;
 }
 
+// Returns an integer representing the number of nodes contained in the tree
+int numberNodes(CPPtr &hdTree) {
+	return 0;
+}
 
+// Recursive function traverses the binary tree given by hdTree and returns the number of nodes that contain an odd number in the
+// data field
+int numberOddDataNodes(CPPtr &hdTree) {
+	return 0;
+}
+
+// Recursive function that traverses the binary tree given by hdTree and returns a pointer to the node with the data field containing
+// the smallest value
+CPPtr minimumDataNode(CPPtr &hdTree) {
+	return NULL;
+}
+
+// Recursive function that traverses the binary tree given by hdTree and returns the sum of all the data fields contained by the tree
+int sumDataNodes(CPPtr &hdTree) {
+	return 0;
+}
+
+// Recursive function that traverses the binary tree given by hdTree and returns the depth of the node with the id given by id
+// Returns -1 if the tree does not contain the given id
+int idDepth(CPPtr &hdTree, int id) {
+	return -1;
+}
+
+// Recursive function that traverses the binary tree given by hdTree and returns a boolean of whether the tree is balanced or not
+bool treeBalanced(CPPtr &hdTree) {
+	return false;
+}
 
 // The function generates an instance of the structure (the same as in the description of the assignement document). The SP pointer
 // points to the head of the tree
