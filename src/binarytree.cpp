@@ -43,7 +43,7 @@ int main(int argc, char ** argv)
     } else {
     	cout << "Minimum data point ID is " << minPointer->id << " and data is " << minPointer->data << endl;
     }
-//    cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
+    cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
 //    cout << "Depth of node with id " << 4 << " is " << idDepth(hdTree, 4) << endl;
 //    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
 //    cout << "Program ends..." << endl;
@@ -105,7 +105,11 @@ CPPtr minimumDataNode(CPPtr &hdTree) {
 
 // Recursive function that traverses the binary tree given by hdTree and returns the sum of all the data fields contained by the tree
 int sumDataNodes(CPPtr &hdTree) {
-	return 0;
+	if (hdTree == NULL) {
+		return 0;
+	} else {
+		return hdTree->data + sumDataNodes(hdTree->left) + sumDataNodes(hdTree->right);
+	}
 }
 
 // Recursive function that traverses the binary tree given by hdTree and returns the depth of the node with the id given by id
