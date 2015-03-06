@@ -37,7 +37,12 @@ int main(int argc, char ** argv)
     
     cout << "Number of nodes is " << numberNodes(hdTree) << endl;
     cout << "Number of nodes with odd data points is " << numberOddDataNodes(hdTree) << endl;
-//    cout << "Value of data field in minimum node is " << minimumDataNode(hdTree)->data << endl;
+    CPPtr minPointer = minimumDataNode(hdTree);
+    if (minPointer == NULL) {
+    	cout << "Pointer to minimum data point FAILED" << endl;
+    } else {
+    	cout << "Minimum data point ID is " << minPointer->id << " and data is " << minPointer->data << endl;
+    }
 //    cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
 //    cout << "Depth of node with id " << 4 << " is " << idDepth(hdTree, 4) << endl;
 //    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
@@ -77,7 +82,25 @@ int numberOddDataNodes(CPPtr &hdTree) {
 // Recursive function that traverses the binary tree given by hdTree and returns a pointer to the node with the data field containing
 // the smallest value
 CPPtr minimumDataNode(CPPtr &hdTree) {
-	return NULL;
+	if (hdTree == NULL) {
+		return NULL;
+	}
+	CPPtr currentMinimum = hdTree;
+	CPPtr comparison = minimumDataNode(hdTree->left);
+	if (comparison != NULL) {
+		if (comparison->data < currentMinimum->data) {
+			currentMinimum = comparison;
+		}
+	}
+
+	comparison = minimumDataNode(hdTree->right);
+	if (comparison != NULL) {
+		if (comparison->data < currentMinimum->data) {
+			currentMinimum = comparison;
+		}
+	}
+
+	return currentMinimum;
 }
 
 // Recursive function that traverses the binary tree given by hdTree and returns the sum of all the data fields contained by the tree
