@@ -60,13 +60,18 @@ int numberNodes(CPPtr &hdTree) {
 		return 1 + numberNodes(hdTree->left) + numberNodes(hdTree->right);
 	}
 
-	return 0;
 }
 
 // Recursive function traverses the binary tree given by hdTree and returns the number of nodes that contain an odd number in the
 // data field
 int numberOddDataNodes(CPPtr &hdTree) {
-	return 0;
+
+	if (hdTree == NULL) {
+		return 0;
+	} else {
+		return (hdTree->data % 2) + numberOddDataNodes(hdTree->left) + numberOddDataNodes(hdTree->right);
+	}
+
 }
 
 // Recursive function that traverses the binary tree given by hdTree and returns a pointer to the node with the data field containing
