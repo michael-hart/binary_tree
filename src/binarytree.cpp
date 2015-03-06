@@ -37,11 +37,11 @@ int main(int argc, char ** argv)
     
     cout << "Number of nodes is " << numberNodes(hdTree) << endl;
     cout << "Number of nodes with odd data points is " << numberOddDataNodes(hdTree) << endl;
-    cout << "Value of data field in minimum node is " << minimumDataNode(hdTree)->data << endl;
-    cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
-    cout << "Depth of node with id " << 4 << " is " << idDepth(hdTree, 4) << endl;
-    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
-    cout << "Program ends..." << endl;
+//    cout << "Value of data field in minimum node is " << minimumDataNode(hdTree)->data << endl;
+//    cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
+//    cout << "Depth of node with id " << 4 << " is " << idDepth(hdTree, 4) << endl;
+//    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
+//    cout << "Program ends..." << endl;
         
     // =================================
     
@@ -53,6 +53,13 @@ int main(int argc, char ** argv)
 
 // Returns an integer representing the number of nodes contained in the tree
 int numberNodes(CPPtr &hdTree) {
+
+	if (hdTree == NULL) {
+		return 0;
+	} else {
+		return 1 + numberNodes(hdTree->left) + numberNodes(hdTree->right);
+	}
+
 	return 0;
 }
 
