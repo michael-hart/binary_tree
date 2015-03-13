@@ -1,4 +1,5 @@
 #include <iostream>
+#include <cstdlib>
 using namespace std;
 
 // Declare the data structure
@@ -45,8 +46,8 @@ int main(int argc, char ** argv)
     }
     cout << "Sum of all values in binary tree is " << sumDataNodes(hdTree) << endl;
     cout << "Depth of node with id " << 11 << " is " << idDepth(hdTree, 11) << endl;
-//    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
-//    cout << "Program ends..." << endl;
+    cout << "Tree is balanced: " << treeBalanced(hdTree) << endl;
+    cout << "Program ends..." << endl;
         
     // =================================
     
@@ -137,12 +138,13 @@ int idDepth(CPPtr &hdTree, int id) {
 	}
 }
 
-// Recursive function that traverses the binary tree given by hdTree and returns a boolean of whether the tree is balanced or not
+// Function that returns a boolean of whether the tree is balanced or not by comparing the left
+// root to the right root
 bool treeBalanced(CPPtr &hdTree) {
-	return false;
+	return abs(numberNodes(hdTree->left) - numberNodes(hdTree->right)) < 2;
 }
 
-// The function generates an instance of the structure (the same as in the description of the assignement document). The SP pointer
+// The function generates an instance of the structure (the same as in the description of the assignment document). The SP pointer
 // points to the head of the tree
 void constructStructure(CPPtr &SP){
     // Declare a structure with 5 nodes
