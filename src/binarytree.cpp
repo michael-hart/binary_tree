@@ -138,10 +138,16 @@ int idDepth(CPPtr &hdTree, int id) {
 	}
 }
 
-// Function that returns a boolean of whether the tree is balanced or not by comparing the left
-// root to the right root
+// Recursive function that returns a boolean of whether the tree is balanced or not by comparing the left
+// root to the right root in both number of items and whether each root is itself balanced
 bool treeBalanced(CPPtr &hdTree) {
-	return abs(numberNodes(hdTree->left) - numberNodes(hdTree->right)) < 2;
+	if (hdTree == NULL) {
+		return 1;
+	} else {
+		return abs(numberNodes(hdTree->left) - numberNodes(hdTree->right)) < 2
+			&& treeBalanced(hdTree->left)
+			&& treeBalanced(hdTree->right);
+	}
 }
 
 // The function generates an instance of the structure (the same as in the description of the assignment document). The SP pointer
